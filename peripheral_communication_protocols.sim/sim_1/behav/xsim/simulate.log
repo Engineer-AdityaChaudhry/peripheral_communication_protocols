@@ -1,13 +1,244 @@
 Time resolution is 1 ps
-PASS: Sent 55, received 55 at time 1873500000
-PASS: Sent aa, received aa at time 3225500000
-PASS: Sent 00, received 00 at time 4577500000
-PASS: Sent ff, received ff at time 5929500000
-PASS: Sent 41, received 41 at time 7281500000
-PASS: Sent 48, received 48 at time 8633500000
-PASS: Sent 69, received 69 at time 9985500000
-====================================
-UART LOOPBACK TEST PASSED
-====================================
-$finish called at time : 10713500 ns : File "/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sim_1/new/uart_tb.v" Line 136
-INFO: xsimkernel Simulation Memory Usage: 281136 KB (Peak: 338408 KB), Simulation CPU Usage: 620 ms
+
+========== TEST 1: RESET ==========
+PASS [1] TX is idle high after reset
+PASS [2] Shift register is empty after reset
+PASS [3] No FIFO pop after reset
+
+========== TEST 2: 8N1 ==========
+PASS [4] 8N1 0xA5 start bit correct at symbol start
+PASS [5] 8N1 0xA5 start bit correct at symbol midpoint
+PASS [6] 8N1 0xA5 data bit 0 correct at symbol start
+PASS [7] 8N1 0xA5 data bit 0 correct at symbol midpoint
+PASS [8] 8N1 0xA5 data bit 1 correct at symbol start
+PASS [9] 8N1 0xA5 data bit 1 correct at symbol midpoint
+
+========== TEST 1: RESET ==========
+PASS [1] TX is idle high after reset
+PASS [2] Shift register is empty after reset
+PASS [3] No FIFO pop after reset
+
+========== TEST 2: 8N1 ==========
+PASS [4] 8N1 0xA5 start bit correct at symbol start
+PASS [5] 8N1 0xA5 start bit correct at symbol midpoint
+PASS [6] 8N1 0xA5 data bit 0 correct at symbol start
+PASS [7] 8N1 0xA5 data bit 0 correct at symbol midpoint
+PASS [8] 8N1 0xA5 data bit 1 correct at symbol start
+PASS [9] 8N1 0xA5 data bit 1 correct at symbol midpoint
+PASS [10] 8N1 0xA5 data bit 2 correct at symbol start
+PASS [11] 8N1 0xA5 data bit 2 correct at symbol midpoint
+PASS [12] 8N1 0xA5 data bit 3 correct at symbol start
+PASS [13] 8N1 0xA5 data bit 3 correct at symbol midpoint
+PASS [14] 8N1 0xA5 data bit 4 correct at symbol start
+PASS [15] 8N1 0xA5 data bit 4 correct at symbol midpoint
+PASS [16] 8N1 0xA5 data bit 5 correct at symbol start
+PASS [17] 8N1 0xA5 data bit 5 correct at symbol midpoint
+PASS [18] 8N1 0xA5 data bit 6 correct at symbol start
+PASS [19] 8N1 0xA5 data bit 6 correct at symbol midpoint
+PASS [20] 8N1 0xA5 data bit 7 correct at symbol start
+PASS [21] 8N1 0xA5 data bit 7 correct at symbol midpoint
+PASS [22] 8N1 0xA5 stop bit(s) correct at symbol start
+PASS [23] 8N1 0xA5 stop bit(s) correct at symbol midpoint
+PASS [24] 8N1 0xA5 returns TX line to idle high
+PASS [25] 8N1 0xA5 leaves transmitter empty
+PASS [26] 8N1 causes exactly one FIFO pop
+
+========== TEST 3: 8E1 ==========
+PASS [27] 8E1 0x13 start bit correct at symbol start
+PASS [28] 8E1 0x13 start bit correct at symbol midpoint
+PASS [29] 8E1 0x13 data bit 0 correct at symbol start
+PASS [30] 8E1 0x13 data bit 0 correct at symbol midpoint
+PASS [31] 8E1 0x13 data bit 1 correct at symbol start
+PASS [32] 8E1 0x13 data bit 1 correct at symbol midpoint
+PASS [33] 8E1 0x13 data bit 2 correct at symbol start
+PASS [34] 8E1 0x13 data bit 2 correct at symbol midpoint
+PASS [35] 8E1 0x13 data bit 3 correct at symbol start
+PASS [36] 8E1 0x13 data bit 3 correct at symbol midpoint
+PASS [37] 8E1 0x13 data bit 4 correct at symbol start
+PASS [38] 8E1 0x13 data bit 4 correct at symbol midpoint
+PASS [39] 8E1 0x13 data bit 5 correct at symbol start
+PASS [40] 8E1 0x13 data bit 5 correct at symbol midpoint
+PASS [41] 8E1 0x13 data bit 6 correct at symbol start
+PASS [42] 8E1 0x13 data bit 6 correct at symbol midpoint
+PASS [43] 8E1 0x13 data bit 7 correct at symbol start
+PASS [44] 8E1 0x13 data bit 7 correct at symbol midpoint
+PASS [45] 8E1 0x13 parity bit correct at symbol start
+PASS [46] 8E1 0x13 parity bit correct at symbol midpoint
+PASS [47] 8E1 0x13 stop bit(s) correct at symbol start
+PASS [48] 8E1 0x13 stop bit(s) correct at symbol midpoint
+PASS [49] 8E1 0x13 returns TX line to idle high
+PASS [50] 8E1 0x13 leaves transmitter empty
+
+========== TEST 4: 8O1 ==========
+PASS [51] 8O1 0x13 start bit correct at symbol start
+PASS [52] 8O1 0x13 start bit correct at symbol midpoint
+PASS [53] 8O1 0x13 data bit 0 correct at symbol start
+PASS [54] 8O1 0x13 data bit 0 correct at symbol midpoint
+PASS [55] 8O1 0x13 data bit 1 correct at symbol start
+PASS [56] 8O1 0x13 data bit 1 correct at symbol midpoint
+PASS [57] 8O1 0x13 data bit 2 correct at symbol start
+PASS [58] 8O1 0x13 data bit 2 correct at symbol midpoint
+PASS [59] 8O1 0x13 data bit 3 correct at symbol start
+PASS [60] 8O1 0x13 data bit 3 correct at symbol midpoint
+PASS [61] 8O1 0x13 data bit 4 correct at symbol start
+PASS [62] 8O1 0x13 data bit 4 correct at symbol midpoint
+PASS [63] 8O1 0x13 data bit 5 correct at symbol start
+PASS [64] 8O1 0x13 data bit 5 correct at symbol midpoint
+PASS [65] 8O1 0x13 data bit 6 correct at symbol start
+PASS [66] 8O1 0x13 data bit 6 correct at symbol midpoint
+PASS [67] 8O1 0x13 data bit 7 correct at symbol start
+PASS [68] 8O1 0x13 data bit 7 correct at symbol midpoint
+PASS [69] 8O1 0x13 parity bit correct at symbol start
+PASS [70] 8O1 0x13 parity bit correct at symbol midpoint
+PASS [71] 8O1 0x13 stop bit(s) correct at symbol start
+PASS [72] 8O1 0x13 stop bit(s) correct at symbol midpoint
+PASS [73] 8O1 0x13 returns TX line to idle high
+PASS [74] 8O1 0x13 leaves transmitter empty
+
+========== TEST 5: 8N2 ==========
+PASS [75] 8N2 0x5A start bit correct at symbol start
+PASS [76] 8N2 0x5A start bit correct at symbol midpoint
+PASS [77] 8N2 0x5A data bit 0 correct at symbol start
+PASS [78] 8N2 0x5A data bit 0 correct at symbol midpoint
+PASS [79] 8N2 0x5A data bit 1 correct at symbol start
+PASS [80] 8N2 0x5A data bit 1 correct at symbol midpoint
+PASS [81] 8N2 0x5A data bit 2 correct at symbol start
+PASS [82] 8N2 0x5A data bit 2 correct at symbol midpoint
+PASS [83] 8N2 0x5A data bit 3 correct at symbol start
+PASS [84] 8N2 0x5A data bit 3 correct at symbol midpoint
+PASS [85] 8N2 0x5A data bit 4 correct at symbol start
+PASS [86] 8N2 0x5A data bit 4 correct at symbol midpoint
+PASS [87] 8N2 0x5A data bit 5 correct at symbol start
+PASS [88] 8N2 0x5A data bit 5 correct at symbol midpoint
+PASS [89] 8N2 0x5A data bit 6 correct at symbol start
+PASS [90] 8N2 0x5A data bit 6 correct at symbol midpoint
+PASS [91] 8N2 0x5A data bit 7 correct at symbol start
+PASS [92] 8N2 0x5A data bit 7 correct at symbol midpoint
+PASS [93] 8N2 0x5A stop bit(s) correct at symbol start
+PASS [94] 8N2 0x5A stop bit(s) correct at symbol midpoint
+PASS [95] 8N2 0x5A returns TX line to idle high
+PASS [96] 8N2 0x5A leaves transmitter empty
+
+========== TEST 6: 5N1.5 ==========
+PASS [97] 5N1.5 0x15 start bit correct at symbol start
+PASS [98] 5N1.5 0x15 start bit correct at symbol midpoint
+PASS [99] 5N1.5 0x15 data bit 0 correct at symbol start
+PASS [100] 5N1.5 0x15 data bit 0 correct at symbol midpoint
+PASS [101] 5N1.5 0x15 data bit 1 correct at symbol start
+PASS [102] 5N1.5 0x15 data bit 1 correct at symbol midpoint
+PASS [103] 5N1.5 0x15 data bit 2 correct at symbol start
+PASS [104] 5N1.5 0x15 data bit 2 correct at symbol midpoint
+PASS [105] 5N1.5 0x15 data bit 3 correct at symbol start
+PASS [106] 5N1.5 0x15 data bit 3 correct at symbol midpoint
+PASS [107] 5N1.5 0x15 data bit 4 correct at symbol start
+PASS [108] 5N1.5 0x15 data bit 4 correct at symbol midpoint
+PASS [109] 5N1.5 0x15 stop bit(s) correct at symbol start
+PASS [110] 5N1.5 0x15 stop bit(s) correct at symbol midpoint
+PASS [111] 5N1.5 0x15 returns TX line to idle high
+PASS [112] 5N1.5 0x15 leaves transmitter empty
+
+========== TEST 7: MARK PARITY ==========
+PASS [113] 8M1 0x00 start bit correct at symbol start
+PASS [114] 8M1 0x00 start bit correct at symbol midpoint
+PASS [115] 8M1 0x00 data bit 0 correct at symbol start
+PASS [116] 8M1 0x00 data bit 0 correct at symbol midpoint
+PASS [117] 8M1 0x00 data bit 1 correct at symbol start
+PASS [118] 8M1 0x00 data bit 1 correct at symbol midpoint
+PASS [119] 8M1 0x00 data bit 2 correct at symbol start
+PASS [120] 8M1 0x00 data bit 2 correct at symbol midpoint
+PASS [121] 8M1 0x00 data bit 3 correct at symbol start
+PASS [122] 8M1 0x00 data bit 3 correct at symbol midpoint
+PASS [123] 8M1 0x00 data bit 4 correct at symbol start
+PASS [124] 8M1 0x00 data bit 4 correct at symbol midpoint
+PASS [125] 8M1 0x00 data bit 5 correct at symbol start
+PASS [126] 8M1 0x00 data bit 5 correct at symbol midpoint
+PASS [127] 8M1 0x00 data bit 6 correct at symbol start
+PASS [128] 8M1 0x00 data bit 6 correct at symbol midpoint
+PASS [129] 8M1 0x00 data bit 7 correct at symbol start
+PASS [130] 8M1 0x00 data bit 7 correct at symbol midpoint
+PASS [131] 8M1 0x00 parity bit correct at symbol start
+PASS [132] 8M1 0x00 parity bit correct at symbol midpoint
+PASS [133] 8M1 0x00 stop bit(s) correct at symbol start
+PASS [134] 8M1 0x00 stop bit(s) correct at symbol midpoint
+PASS [135] 8M1 0x00 returns TX line to idle high
+PASS [136] 8M1 0x00 leaves transmitter empty
+
+========== TEST 8: BACK-TO-BACK ==========
+PASS [137] Back-to-back byte 1 start bit correct at symbol start
+PASS [138] Back-to-back byte 1 start bit correct at symbol midpoint
+PASS [139] Back-to-back byte 1 data bit 0 correct at symbol start
+PASS [140] Back-to-back byte 1 data bit 0 correct at symbol midpoint
+PASS [141] Back-to-back byte 1 data bit 1 correct at symbol start
+PASS [142] Back-to-back byte 1 data bit 1 correct at symbol midpoint
+PASS [143] Back-to-back byte 1 data bit 2 correct at symbol start
+PASS [144] Back-to-back byte 1 data bit 2 correct at symbol midpoint
+PASS [145] Back-to-back byte 1 data bit 3 correct at symbol start
+PASS [146] Back-to-back byte 1 data bit 3 correct at symbol midpoint
+PASS [147] Back-to-back byte 1 data bit 4 correct at symbol start
+PASS [148] Back-to-back byte 1 data bit 4 correct at symbol midpoint
+PASS [149] Back-to-back byte 1 data bit 5 correct at symbol start
+PASS [150] Back-to-back byte 1 data bit 5 correct at symbol midpoint
+PASS [151] Back-to-back byte 1 data bit 6 correct at symbol start
+PASS [152] Back-to-back byte 1 data bit 6 correct at symbol midpoint
+PASS [153] Back-to-back byte 1 data bit 7 correct at symbol start
+PASS [154] Back-to-back byte 1 data bit 7 correct at symbol midpoint
+PASS [155] Back-to-back byte 1 stop bit(s) correct at symbol start
+PASS [156] Back-to-back byte 1 stop bit(s) correct at symbol midpoint
+PASS [157] Back-to-back byte 1 immediately starts next frame
+PASS [158] Back-to-back byte 2 start bit correct at symbol start
+PASS [159] Back-to-back byte 2 start bit correct at symbol midpoint
+PASS [160] Back-to-back byte 2 data bit 0 correct at symbol start
+PASS [161] Back-to-back byte 2 data bit 0 correct at symbol midpoint
+PASS [162] Back-to-back byte 2 data bit 1 correct at symbol start
+PASS [163] Back-to-back byte 2 data bit 1 correct at symbol midpoint
+PASS [164] Back-to-back byte 2 data bit 2 correct at symbol start
+PASS [165] Back-to-back byte 2 data bit 2 correct at symbol midpoint
+PASS [166] Back-to-back byte 2 data bit 3 correct at symbol start
+PASS [167] Back-to-back byte 2 data bit 3 correct at symbol midpoint
+PASS [168] Back-to-back byte 2 data bit 4 correct at symbol start
+PASS [169] Back-to-back byte 2 data bit 4 correct at symbol midpoint
+PASS [170] Back-to-back byte 2 data bit 5 correct at symbol start
+PASS [171] Back-to-back byte 2 data bit 5 correct at symbol midpoint
+PASS [172] Back-to-back byte 2 data bit 6 correct at symbol start
+PASS [173] Back-to-back byte 2 data bit 6 correct at symbol midpoint
+PASS [174] Back-to-back byte 2 data bit 7 correct at symbol start
+PASS [175] Back-to-back byte 2 data bit 7 correct at symbol midpoint
+PASS [176] Back-to-back byte 2 stop bit(s) correct at symbol start
+PASS [177] Back-to-back byte 2 stop bit(s) correct at symbol midpoint
+PASS [178] Back-to-back byte 2 returns TX line to idle high
+PASS [179] Back-to-back byte 2 leaves transmitter empty
+PASS [180] Two queued bytes cause exactly two FIFO pops
+
+========== TEST 9: LCR LATCHING ==========
+PASS [181] Latched 8N1 frame start bit correct at symbol start
+PASS [182] Latched 8N1 frame start bit correct at symbol midpoint
+PASS [183] Latched 8N1 frame data bit 0 correct at symbol start
+PASS [184] Latched 8N1 frame data bit 0 correct at symbol midpoint
+PASS [185] Latched 8N1 frame data bit 1 correct at symbol start
+PASS [186] Latched 8N1 frame data bit 1 correct at symbol midpoint
+PASS [187] Latched 8N1 frame data bit 2 correct at symbol start
+PASS [188] Latched 8N1 frame data bit 2 correct at symbol midpoint
+PASS [189] Latched 8N1 frame data bit 3 correct at symbol start
+PASS [190] Latched 8N1 frame data bit 3 correct at symbol midpoint
+PASS [191] Latched 8N1 frame data bit 4 correct at symbol start
+PASS [192] Latched 8N1 frame data bit 4 correct at symbol midpoint
+PASS [193] Latched 8N1 frame data bit 5 correct at symbol start
+PASS [194] Latched 8N1 frame data bit 5 correct at symbol midpoint
+PASS [195] Latched 8N1 frame data bit 6 correct at symbol start
+PASS [196] Latched 8N1 frame data bit 6 correct at symbol midpoint
+PASS [197] Latched 8N1 frame data bit 7 correct at symbol start
+PASS [198] Latched 8N1 frame data bit 7 correct at symbol midpoint
+PASS [199] Latched 8N1 frame stop bit(s) correct at symbol start
+PASS [200] Latched 8N1 frame stop bit(s) correct at symbol midpoint
+PASS [201] Latched 8N1 frame returns TX line to idle high
+PASS [202] Latched 8N1 frame leaves transmitter empty
+
+========== TEST 10: BREAK CONTROL ==========
+PASS [203] Break control forces TX low
+PASS [204] TX returns high when break is cleared
+
+========================================
+ALL UART TX TESTS PASSED. Checks: 204
+========================================
+
+$finish called at time : 29968 ns : File "/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sim_1/new/uart_tx_tb.sv" Line 525
