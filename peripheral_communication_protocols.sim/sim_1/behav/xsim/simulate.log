@@ -1,0 +1,13 @@
+Time resolution is 1 ps
+PASS: Sent 55, received 55 at time 1873500000
+PASS: Sent aa, received aa at time 3225500000
+PASS: Sent 00, received 00 at time 4577500000
+PASS: Sent ff, received ff at time 5929500000
+PASS: Sent 41, received 41 at time 7281500000
+PASS: Sent 48, received 48 at time 8633500000
+PASS: Sent 69, received 69 at time 9985500000
+====================================
+UART LOOPBACK TEST PASSED
+====================================
+$finish called at time : 10713500 ns : File "/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sim_1/new/uart_tb.v" Line 136
+INFO: xsimkernel Simulation Memory Usage: 281136 KB (Peak: 338408 KB), Simulation CPU Usage: 620 ms
