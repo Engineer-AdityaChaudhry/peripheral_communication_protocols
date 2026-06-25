@@ -1,0 +1,7 @@
+Running: xsim.dir/spi_daisy_chain_tb_behav/xsimk -simmode gui -wdb spi_daisy_chain_tb_behav.wdb -simrunnum 0 -socket 44591
+Design successfully loaded
+Design Loading Memory Usage: 199196 KB (Peak: 199196 KB)
+Design Loading CPU Usage: 640 ms
+Simulation completed
+Simulation Memory Usage: 290672 KB (Peak: 338464 KB)
+Simulation CPU Usage: 660 ms

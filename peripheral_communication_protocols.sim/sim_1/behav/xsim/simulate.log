@@ -1,87 +1,118 @@
 Time resolution is 1 ps
 
-========== TEST 1: RESET ==========
-PASS [1] SYNC_n resets high
-PASS [2] SCLK resets low
-PASS [3] MOSI resets low
-PASS [4] Master busy resets low
-PASS [5] Master done resets low
-PASS [6] Internal reference starts disabled
-PASS [7] DAC A resets to zero
-PASS [8] DAC H resets to zero
+========== TEST 1: RESET / IDLE BUS ==========
+PASS [1] SCL is high while idle
+PASS [2] SDA is high while idle
+PASS [3] Master busy resets low
+PASS [4] Master ACK error resets low
+PASS [5] Slave data register resets to 00
+PASS [6] Slave stretch flag resets low
 
-========== TEST 2: AD5628 DAC WRITE ==========
-PASS [9] Internal-reference enable frame asserts busy
-PASS [10] Internal-reference enable frame asserts SYNC_n low
-PASS [11] Internal-reference enable frame starts with idle-low SCLK
-PASS [12] Internal-reference enable frame waits for first rising edge before MOSI launch
+========== TEST 2: NORMAL WRITE ==========
+PASS [7] Normal write makes master busy
+PASS [8] Normal write: master completes transaction
+PASS [9] Normal write receives ACKs
+PASS [10] Normal write stores A5
+PASS [11] Normal write creates one slave write-valid event
+PASS [12] Normal write creates one START
+PASS [13] Normal write creates one STOP
 
-========== TEST 1: RESET ==========
-PASS [1] SYNC_n resets high
-PASS [2] SCLK resets low
-PASS [3] MOSI resets low
-PASS [4] Master busy resets low
-PASS [5] Master done resets low
-PASS [6] Internal reference starts disabled
-PASS [7] DAC A resets to zero
-PASS [8] DAC H resets to zero
+========== TEST 3: CLOCK-STRETCHED WRITE ==========
+PASS [14] Slave enters clock-stretch state
+PASS [15] Slave reports active clock stretch
+PASS [16] Slave holds shared SCL low during stretch
+PASS [17] Master remains busy while SCL is stretched
+PASS [18] Slave remains in stretch state while request is high
+PASS [19] SCL stays low for an extended stretch interval
+PASS [20] Clock-stretched write: master completes transaction
+PASS [21] Clock-stretched write still receives ACKs
+PASS [22] Clock-stretched write stores 3C
+PASS [23] Clock-stretched write creates one write-valid event
+PASS [24] Clock-stretched write creates one START
+PASS [25] Clock-stretched write creates one STOP
+PASS [26] SCL returns high after stretched transaction
+PASS [27] SDA returns high after stretched transaction
 
-========== TEST 2: AD5628 DAC WRITE ==========
-PASS [9] Internal-reference enable frame asserts busy
-PASS [10] Internal-reference enable frame asserts SYNC_n low
-PASS [11] Internal-reference enable frame starts with idle-low SCLK
-PASS [12] Internal-reference enable frame waits for first rising edge before MOSI launch
-PASS [13] Internal-reference enable frame master pulses done
-PASS [14] Internal-reference enable frame DAC model completes frame
-PASS [15] Internal-reference enable frame DAC model marks frame valid
-PASS [16] Internal-reference enable frame has no premature-SYNC frame error
-PASS [17] Internal-reference enable frame command is supported
-PASS [18] Internal-reference enable frame executes command
-PASS [19] Internal-reference enable frame DAC samples exactly 32 bits
-PASS [20] Internal-reference enable frame monitor captures 32 MOSI bits
-PASS [21] Internal-reference enable frame monitor captures expected 32-bit frame
-PASS [22] Internal-reference enable frame DAC model records expected frame
-PASS [23] Internal-reference enable frame generates 32 SCLK rising edges
-PASS [24] Internal-reference enable frame generates 32 SCLK falling edges
-PASS [25] Internal-reference enable frame releases SYNC_n after transfer
-PASS [26] Internal-reference enable frame returns SCLK to idle low
-PASS [27] Internal-reference enable frame clears busy after transfer
-PASS [28] Internal-reference enable frame done is one clock wide
-PASS [29] Internal reference enables after 0x0800_0001
-PASS [30] Reference command does not modify DAC A
-PASS [31] DAC A write-and-update frame asserts busy
-PASS [32] DAC A write-and-update frame asserts SYNC_n low
-PASS [33] DAC A write-and-update frame starts with idle-low SCLK
-PASS [34] DAC A write-and-update frame waits for first rising edge before MOSI launch
-PASS [35] DAC A write-and-update frame master pulses done
-PASS [36] DAC A write-and-update frame DAC model completes frame
-PASS [37] DAC A write-and-update frame DAC model marks frame valid
-PASS [38] DAC A write-and-update frame has no premature-SYNC frame error
-PASS [39] DAC A write-and-update frame command is supported
-PASS [40] DAC A write-and-update frame executes command
-PASS [41] DAC A write-and-update frame DAC samples exactly 32 bits
-PASS [42] DAC A write-and-update frame monitor captures 32 MOSI bits
-PASS [43] DAC A write-and-update frame monitor captures expected 32-bit frame
-PASS [44] DAC A write-and-update frame DAC model records expected frame
-PASS [45] DAC A write-and-update frame generates 32 SCLK rising edges
-PASS [46] DAC A write-and-update frame generates 32 SCLK falling edges
-PASS [47] DAC A write-and-update frame releases SYNC_n after transfer
-PASS [48] DAC A write-and-update frame returns SCLK to idle low
-PASS [49] DAC A write-and-update frame clears busy after transfer
-PASS [50] DAC A write-and-update frame done is one clock wide
-PASS [51] Internal reference remains enabled
-PASS [52] DAC A updates to 12'hAAA
-PASS [53] DAC B remains unchanged
-PASS [54] DAC C remains unchanged
-PASS [55] DAC D remains unchanged
-PASS [56] DAC E remains unchanged
-PASS [57] DAC F remains unchanged
-PASS [58] DAC G remains unchanged
-PASS [59] DAC H remains unchanged
+========== TEST 4: READ AFTER STRETCHED WRITE ==========
+PASS [28] Read after stretched write: master completes transaction
+PASS [29] Read request receives address ACK
+PASS [30] Master reads back stored byte 3C
+PASS [31] Slave detects master's final read NACK
+PASS [32] Read creates one START
+PASS [33] Read creates one STOP
+
+========== TEST 5: WRONG ADDRESS ==========
+PASS [34] Wrong-address write: master completes transaction
+PASS [35] Master reports NACK for wrong address
+PASS [36] Wrong-address write does not modify slave data
+PASS [37] Wrong-address write creates no slave write event
+PASS [38] Wrong-address transaction creates one START
+PASS [39] Wrong-address transaction creates one STOP
+PASS [40] Master clears busy after final STOP
+PASS [41] SCL is high at final idle
+PASS [42] SDA is high at final idle
 
 ========================================
-ALL AD5628 DAC SPI TESTS PASSED. Checks: 59
+ALL I2C CLOCK-STRETCHING TESTS PASSED. Checks: 42
 ========================================
 
-$finish called at time : 5386 ns : File "/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sim_1/new/ad5628_spi_master_slave_tb.sv" Line 438
-INFO: xsimkernel Simulation Memory Usage: 290648 KB (Peak: 338440 KB), Simulation CPU Usage: 630 ms
+$finish called at time : 31806 ns : File "/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sim_1/new/i2c_cs_tb.sv" Line 403
+
+========== TEST 1: RESET / IDLE BUS ==========
+PASS [1] SCL is high while idle
+PASS [2] SDA is high while idle
+PASS [3] Master busy resets low
+PASS [4] Master ACK error resets low
+PASS [5] Slave data register resets to 00
+PASS [6] Slave stretch flag resets low
+
+========== TEST 2: NORMAL WRITE ==========
+PASS [7] Normal write makes master busy
+PASS [8] Normal write: master completes transaction
+PASS [9] Normal write receives ACKs
+PASS [10] Normal write stores A5
+PASS [11] Normal write creates one slave write-valid event
+PASS [12] Normal write creates one START
+PASS [13] Normal write creates one STOP
+
+========== TEST 3: CLOCK-STRETCHED WRITE ==========
+PASS [14] Slave enters clock-stretch state
+PASS [15] Slave reports active clock stretch
+PASS [16] Slave holds shared SCL low during stretch
+PASS [17] Master remains busy while SCL is stretched
+PASS [18] Slave remains in stretch state while request is high
+PASS [19] SCL stays low for an extended stretch interval
+PASS [20] Clock-stretched write: master completes transaction
+PASS [21] Clock-stretched write still receives ACKs
+PASS [22] Clock-stretched write stores 3C
+PASS [23] Clock-stretched write creates one write-valid event
+PASS [24] Clock-stretched write creates one START
+PASS [25] Clock-stretched write creates one STOP
+PASS [26] SCL returns high after stretched transaction
+PASS [27] SDA returns high after stretched transaction
+
+========== TEST 4: READ AFTER STRETCHED WRITE ==========
+PASS [28] Read after stretched write: master completes transaction
+PASS [29] Read request receives address ACK
+PASS [30] Master reads back stored byte 3C
+PASS [31] Slave detects master's final read NACK
+PASS [32] Read creates one START
+PASS [33] Read creates one STOP
+
+========== TEST 5: WRONG ADDRESS ==========
+PASS [34] Wrong-address write: master completes transaction
+PASS [35] Master reports NACK for wrong address
+PASS [36] Wrong-address write does not modify slave data
+PASS [37] Wrong-address write creates no slave write event
+PASS [38] Wrong-address transaction creates one START
+PASS [39] Wrong-address transaction creates one STOP
+PASS [40] Master clears busy after final STOP
+PASS [41] SCL is high at final idle
+PASS [42] SDA is high at final idle
+
+========================================
+ALL I2C CLOCK-STRETCHING TESTS PASSED. Checks: 42
+========================================
+
+$finish called at time : 31806 ns : File "/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sim_1/new/i2c_cs_tb.sv" Line 403
+INFO: xsimkernel Simulation Memory Usage: 290684 KB (Peak: 338476 KB), Simulation CPU Usage: 650 ms
