@@ -1,128 +1,87 @@
 Time resolution is 1 ps
 
-========== TEST 1: RESET / IDLE ==========
-PASS [1] Master SCLK resets low
-PASS [2] Master CS_n resets high
-PASS [3] Master MOSI resets low
+========== TEST 1: RESET ==========
+PASS [1] SYNC_n resets high
+PASS [2] SCLK resets low
+PASS [3] MOSI resets low
 PASS [4] Master busy resets low
 PASS [5] Master done resets low
-PASS [6] Slave MISO output-enable resets low
-PASS [7] Slave receive-valid resets low
-PASS [8] Shared MISO is high impedance while deselected
+PASS [6] Internal reference starts disabled
+PASS [7] DAC A resets to zero
+PASS [8] DAC H resets to zero
 
-========== TEST 2: FULL-DUPLEX A5 <-> BA ==========
-PASS [9] Transfer A5 <-> BA asserts master busy
-PASS [10] Transfer A5 <-> BA asserts CS_n low
-PASS [11] Transfer A5 <-> BA starts with SCLK low for Mode 0
-PASS [12] Transfer A5 <-> BA places MOSI MSB before first SCLK rising edge
-PASS [13] Transfer A5 <-> BA SCLK half-period matches divider
+========== TEST 2: AD5628 DAC WRITE ==========
+PASS [9] Internal-reference enable frame asserts busy
+PASS [10] Internal-reference enable frame asserts SYNC_n low
+PASS [11] Internal-reference enable frame starts with idle-low SCLK
+PASS [12] Internal-reference enable frame waits for first rising edge before MOSI launch
 
-========== TEST 1: RESET / IDLE ==========
-PASS [1] Master SCLK resets low
-PASS [2] Master CS_n resets high
-PASS [3] Master MOSI resets low
+========== TEST 1: RESET ==========
+PASS [1] SYNC_n resets high
+PASS [2] SCLK resets low
+PASS [3] MOSI resets low
 PASS [4] Master busy resets low
 PASS [5] Master done resets low
-PASS [6] Slave MISO output-enable resets low
-PASS [7] Slave receive-valid resets low
-PASS [8] Shared MISO is high impedance while deselected
+PASS [6] Internal reference starts disabled
+PASS [7] DAC A resets to zero
+PASS [8] DAC H resets to zero
 
-========== TEST 2: FULL-DUPLEX A5 <-> BA ==========
-PASS [9] Transfer A5 <-> BA asserts master busy
-PASS [10] Transfer A5 <-> BA asserts CS_n low
-PASS [11] Transfer A5 <-> BA starts with SCLK low for Mode 0
-PASS [12] Transfer A5 <-> BA places MOSI MSB before first SCLK rising edge
-PASS [13] Transfer A5 <-> BA SCLK half-period matches divider
-PASS [14] Transfer A5 <-> BA master completes and pulses done
-PASS [15] Transfer A5 <-> BA slave receives a complete frame
-PASS [16] Transfer A5 <-> BA master receives 0xba from slave
-PASS [17] Transfer A5 <-> BA slave receives 0xa5 from master
-PASS [18] Transfer A5 <-> BA generates exactly eight SCLK rising edges
-PASS [19] Transfer A5 <-> BA generates exactly eight SCLK falling edges
-PASS [20] Transfer A5 <-> BA performs one CS_n assertion
-PASS [21] Transfer A5 <-> BA releases CS_n after transfer
-PASS [22] Transfer A5 <-> BA returns SCLK low after transfer
-PASS [23] Transfer A5 <-> BA deasserts busy after transfer
-PASS [24] Transfer A5 <-> BA slave releases MISO after deselection
-PASS [25] Transfer A5 <-> BA done is one system-clock pulse
-
-========== TEST 3: FULL-DUPLEX 3C <-> C3 ==========
-PASS [26] Transfer 3C <-> C3 asserts master busy
-PASS [27] Transfer 3C <-> C3 asserts CS_n low
-PASS [28] Transfer 3C <-> C3 starts with SCLK low for Mode 0
-PASS [29] Transfer 3C <-> C3 places MOSI MSB before first SCLK rising edge
-PASS [30] Transfer 3C <-> C3 SCLK half-period matches divider
-PASS [31] Transfer 3C <-> C3 master completes and pulses done
-PASS [32] Transfer 3C <-> C3 slave receives a complete frame
-PASS [33] Transfer 3C <-> C3 master receives 0xc3 from slave
-PASS [34] Transfer 3C <-> C3 slave receives 0x3c from master
-PASS [35] Transfer 3C <-> C3 generates exactly eight SCLK rising edges
-PASS [36] Transfer 3C <-> C3 generates exactly eight SCLK falling edges
-PASS [37] Transfer 3C <-> C3 performs one CS_n assertion
-PASS [38] Transfer 3C <-> C3 releases CS_n after transfer
-PASS [39] Transfer 3C <-> C3 returns SCLK low after transfer
-PASS [40] Transfer 3C <-> C3 deasserts busy after transfer
-PASS [41] Transfer 3C <-> C3 slave releases MISO after deselection
-PASS [42] Transfer 3C <-> C3 done is one system-clock pulse
-
-========== TEST 4: START WHILE BUSY ==========
-PASS [43] Busy-protection transfer 96 <-> 69 asserts master busy
-PASS [44] Busy-protection transfer 96 <-> 69 asserts CS_n low
-PASS [45] Busy-protection transfer 96 <-> 69 starts with SCLK low for Mode 0
-PASS [46] Busy-protection transfer 96 <-> 69 places MOSI MSB before first SCLK rising edge
-PASS [47] Master remains busy during additional start request
-PASS [48] Busy-protection transfer 96 <-> 69 SCLK half-period matches divider
-PASS [49] Busy-protection transfer 96 <-> 69 master completes and pulses done
-PASS [50] Busy-protection transfer 96 <-> 69 slave receives a complete frame
-PASS [51] Busy-protection transfer 96 <-> 69 master receives 0x69 from slave
-PASS [52] Busy-protection transfer 96 <-> 69 slave receives 0x96 from master
-PASS [53] Busy-protection transfer 96 <-> 69 generates exactly eight SCLK rising edges
-PASS [54] Busy-protection transfer 96 <-> 69 generates exactly eight SCLK falling edges
-PASS [55] Busy-protection transfer 96 <-> 69 performs one CS_n assertion
-PASS [56] Busy-protection transfer 96 <-> 69 releases CS_n after transfer
-PASS [57] Busy-protection transfer 96 <-> 69 returns SCLK low after transfer
-PASS [58] Busy-protection transfer 96 <-> 69 deasserts busy after transfer
-PASS [59] Busy-protection transfer 96 <-> 69 slave releases MISO after deselection
-PASS [60] Busy-protection transfer 96 <-> 69 done is one system-clock pulse
-
-========== TEST 5: EDGE DATA PATTERNS ==========
-PASS [61] Transfer 00 <-> FF asserts master busy
-PASS [62] Transfer 00 <-> FF asserts CS_n low
-PASS [63] Transfer 00 <-> FF starts with SCLK low for Mode 0
-PASS [64] Transfer 00 <-> FF places MOSI MSB before first SCLK rising edge
-PASS [65] Transfer 00 <-> FF SCLK half-period matches divider
-PASS [66] Transfer 00 <-> FF master completes and pulses done
-PASS [67] Transfer 00 <-> FF slave receives a complete frame
-PASS [68] Transfer 00 <-> FF master receives 0xff from slave
-PASS [69] Transfer 00 <-> FF slave receives 0x00 from master
-PASS [70] Transfer 00 <-> FF generates exactly eight SCLK rising edges
-PASS [71] Transfer 00 <-> FF generates exactly eight SCLK falling edges
-PASS [72] Transfer 00 <-> FF performs one CS_n assertion
-PASS [73] Transfer 00 <-> FF releases CS_n after transfer
-PASS [74] Transfer 00 <-> FF returns SCLK low after transfer
-PASS [75] Transfer 00 <-> FF deasserts busy after transfer
-PASS [76] Transfer 00 <-> FF slave releases MISO after deselection
-PASS [77] Transfer 00 <-> FF done is one system-clock pulse
-PASS [78] Transfer FF <-> 00 asserts master busy
-PASS [79] Transfer FF <-> 00 asserts CS_n low
-PASS [80] Transfer FF <-> 00 starts with SCLK low for Mode 0
-PASS [81] Transfer FF <-> 00 places MOSI MSB before first SCLK rising edge
-PASS [82] Transfer FF <-> 00 SCLK half-period matches divider
-PASS [83] Transfer FF <-> 00 master completes and pulses done
-PASS [84] Transfer FF <-> 00 slave receives a complete frame
-PASS [85] Transfer FF <-> 00 master receives 0x00 from slave
-PASS [86] Transfer FF <-> 00 slave receives 0xff from master
-PASS [87] Transfer FF <-> 00 generates exactly eight SCLK rising edges
-PASS [88] Transfer FF <-> 00 generates exactly eight SCLK falling edges
-PASS [89] Transfer FF <-> 00 performs one CS_n assertion
-PASS [90] Transfer FF <-> 00 releases CS_n after transfer
-PASS [91] Transfer FF <-> 00 returns SCLK low after transfer
-PASS [92] Transfer FF <-> 00 deasserts busy after transfer
-PASS [93] Transfer FF <-> 00 slave releases MISO after deselection
-PASS [94] Transfer FF <-> 00 done is one system-clock pulse
+========== TEST 2: AD5628 DAC WRITE ==========
+PASS [9] Internal-reference enable frame asserts busy
+PASS [10] Internal-reference enable frame asserts SYNC_n low
+PASS [11] Internal-reference enable frame starts with idle-low SCLK
+PASS [12] Internal-reference enable frame waits for first rising edge before MOSI launch
+PASS [13] Internal-reference enable frame master pulses done
+PASS [14] Internal-reference enable frame DAC model completes frame
+PASS [15] Internal-reference enable frame DAC model marks frame valid
+PASS [16] Internal-reference enable frame has no premature-SYNC frame error
+PASS [17] Internal-reference enable frame command is supported
+PASS [18] Internal-reference enable frame executes command
+PASS [19] Internal-reference enable frame DAC samples exactly 32 bits
+PASS [20] Internal-reference enable frame monitor captures 32 MOSI bits
+PASS [21] Internal-reference enable frame monitor captures expected 32-bit frame
+PASS [22] Internal-reference enable frame DAC model records expected frame
+PASS [23] Internal-reference enable frame generates 32 SCLK rising edges
+PASS [24] Internal-reference enable frame generates 32 SCLK falling edges
+PASS [25] Internal-reference enable frame releases SYNC_n after transfer
+PASS [26] Internal-reference enable frame returns SCLK to idle low
+PASS [27] Internal-reference enable frame clears busy after transfer
+PASS [28] Internal-reference enable frame done is one clock wide
+PASS [29] Internal reference enables after 0x0800_0001
+PASS [30] Reference command does not modify DAC A
+PASS [31] DAC A write-and-update frame asserts busy
+PASS [32] DAC A write-and-update frame asserts SYNC_n low
+PASS [33] DAC A write-and-update frame starts with idle-low SCLK
+PASS [34] DAC A write-and-update frame waits for first rising edge before MOSI launch
+PASS [35] DAC A write-and-update frame master pulses done
+PASS [36] DAC A write-and-update frame DAC model completes frame
+PASS [37] DAC A write-and-update frame DAC model marks frame valid
+PASS [38] DAC A write-and-update frame has no premature-SYNC frame error
+PASS [39] DAC A write-and-update frame command is supported
+PASS [40] DAC A write-and-update frame executes command
+PASS [41] DAC A write-and-update frame DAC samples exactly 32 bits
+PASS [42] DAC A write-and-update frame monitor captures 32 MOSI bits
+PASS [43] DAC A write-and-update frame monitor captures expected 32-bit frame
+PASS [44] DAC A write-and-update frame DAC model records expected frame
+PASS [45] DAC A write-and-update frame generates 32 SCLK rising edges
+PASS [46] DAC A write-and-update frame generates 32 SCLK falling edges
+PASS [47] DAC A write-and-update frame releases SYNC_n after transfer
+PASS [48] DAC A write-and-update frame returns SCLK to idle low
+PASS [49] DAC A write-and-update frame clears busy after transfer
+PASS [50] DAC A write-and-update frame done is one clock wide
+PASS [51] Internal reference remains enabled
+PASS [52] DAC A updates to 12'hAAA
+PASS [53] DAC B remains unchanged
+PASS [54] DAC C remains unchanged
+PASS [55] DAC D remains unchanged
+PASS [56] DAC E remains unchanged
+PASS [57] DAC F remains unchanged
+PASS [58] DAC G remains unchanged
+PASS [59] DAC H remains unchanged
 
 ========================================
-ALL SPI MASTER-SLAVE TESTS PASSED. Checks: 94
+ALL AD5628 DAC SPI TESTS PASSED. Checks: 59
 ========================================
 
-$finish called at time : 5916 ns : File "/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sim_1/new/spi_master_slave_tb.sv" Line 532
+$finish called at time : 5386 ns : File "/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sim_1/new/ad5628_spi_master_slave_tb.sv" Line 438
+INFO: xsimkernel Simulation Memory Usage: 290648 KB (Peak: 338440 KB), Simulation CPU Usage: 630 ms
