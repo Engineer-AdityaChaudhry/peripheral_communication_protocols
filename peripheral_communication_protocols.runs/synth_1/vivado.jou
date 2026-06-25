@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 12:34:56 MST 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Thu Jun 25 13:19:52 2026
+# Process ID         : 33299
+# Current directory  : /home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.runs/synth_1
+# Command line       : vivado -log uart_16550_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source uart_16550_top.tcl
+# Log file           : /home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.runs/synth_1/uart_16550_top.vds
+# Journal file       : /home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.runs/synth_1/vivado.jou
+# Running On         : mtm-forge
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.4 LTS
+# Processor Detail   : Intel(R) Core(TM) i7-14700HX
+# CPU Frequency      : 800.602 MHz
+# CPU Physical cores : 20
+# CPU Logical cores  : 28
+# Host memory        : 33341 MB
+# Swap memory        : 8589 MB
+# Total Virtual      : 41931 MB
+# Available Virtual  : 32857 MB
+#-----------------------------------------------------------
+source uart_16550_top.tcl -notrace

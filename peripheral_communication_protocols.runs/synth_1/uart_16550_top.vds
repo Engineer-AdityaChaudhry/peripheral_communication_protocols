@@ -1,0 +1,306 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 12:34:56 MST 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Thu Jun 25 13:19:52 2026
+# Process ID         : 33299
+# Current directory  : /home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.runs/synth_1
+# Command line       : vivado -log uart_16550_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source uart_16550_top.tcl
+# Log file           : /home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.runs/synth_1/uart_16550_top.vds
+# Journal file       : /home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.runs/synth_1/vivado.jou
+# Running On         : mtm-forge
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.4 LTS
+# Processor Detail   : Intel(R) Core(TM) i7-14700HX
+# CPU Frequency      : 800.602 MHz
+# CPU Physical cores : 20
+# CPU Logical cores  : 28
+# Host memory        : 33341 MB
+# Swap memory        : 8589 MB
+# Total Virtual      : 41931 MB
+# Available Virtual  : 32857 MB
+#-----------------------------------------------------------
+source uart_16550_top.tcl -notrace
+Command: read_checkpoint -auto_incremental -incremental /home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/utils_1/imports/synth_1/uart_top.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/utils_1/imports/synth_1/uart_top.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top uart_16550_top -part xc7z010iclg225-1L
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010i'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010i'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 33336
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2029.676 ; gain = 413.672 ; free physical = 16104 ; free virtual = 30205
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'uart_16550_top' [/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sources_1/new/uart_16550A_top.sv:14]
+INFO: [Synth 8-6157] synthesizing module 'uart_register' [/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sources_1/new/uart_reg.sv:25]
+INFO: [Synth 8-226] default block is never used [/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sources_1/new/uart_reg.sv:412]
+INFO: [Synth 8-6155] done synthesizing module 'uart_register' (0#1) [/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sources_1/new/uart_reg.sv:25]
+INFO: [Synth 8-6157] synthesizing module 'fifo_8x16' [/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sources_1/new/fifo_8x16.sv:7]
+INFO: [Synth 8-6155] done synthesizing module 'fifo_8x16' (0#1) [/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sources_1/new/fifo_8x16.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'uart_tx' [/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sources_1/new/uart_tx.sv:18]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (0#1) [/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sources_1/new/uart_tx.sv:18]
+INFO: [Synth 8-6157] synthesizing module 'uart_rx' [/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sources_1/new/uart_rx.sv:17]
+INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (0#1) [/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sources_1/new/uart_rx.sv:17]
+INFO: [Synth 8-6155] done synthesizing module 'uart_16550_top' (0#1) [/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sources_1/new/uart_16550A_top.sv:14]
+WARNING: [Synth 8-6014] Unused sequential element fcr_dma_mode_reg_reg was removed.  [/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sources_1/new/uart_reg.sv:225]
+WARNING: [Synth 8-7137] Register mem_reg in module fifo_8x16 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
+WARNING: [Synth 8-4767] Trying to implement RAM 'mem_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons. [/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sources_1/new/fifo_8x16.sv:83]
+Reason is one or more of the following :
+	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
+WARNING: [Synth 8-7129] Port lcr[7] in module uart_rx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port lcr[6] in module uart_rx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port lcr[2] in module uart_rx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port lcr[7] in module uart_tx is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2119.613 ; gain = 503.609 ; free physical = 15996 ; free virtual = 30108
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2131.488 ; gain = 515.484 ; free physical = 16006 ; free virtual = 30126
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z010iclg225-1L
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z010iclg225-1L
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2131.488 ; gain = 515.484 ; free physical = 16006 ; free virtual = 30125
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Preparing Guide Design
+---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-6895] The reference checkpoint /home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/utils_1/imports/synth_1/uart_top.dcp is not suitable for use with incremental synthesis for this design. Please regenerate the checkpoint for this design with -incremental_synth switch in the same Vivado session that synth_design has been run. Synthesis will continue with the default flow
+---------------------------------------------------------------------------------
+Finished Doing Graph Differ : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2131.488 ; gain = 515.484 ; free physical = 16001 ; free virtual = 30122
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Preparing Guide Design : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2131.488 ; gain = 515.484 ; free physical = 16001 ; free virtual = 30122
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'uart_tx'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'uart_rx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+                   START |                              001 |                              001
+                    DATA |                              010 |                              010
+                  PARITY |                              011 |                              011
+                    STOP |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'uart_tx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+             START_CHECK |                              001 |                              001
+                    DATA |                              010 |                              010
+                  PARITY |                              011 |                              011
+                    STOP |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'uart_rx'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 2158.480 ; gain = 542.477 ; free physical = 15997 ; free virtual = 30118
+---------------------------------------------------------------------------------
+
+
+Incremental Synthesis Report Summary:
+
+1. Incremental synthesis run: no
+
+   Reason for not running incremental synthesis : 
+
+
+INFO: [Synth 8-7130] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   16 Bit       Adders := 2     
+	   2 Input    6 Bit       Adders := 2     
+	   2 Input    5 Bit       Adders := 3     
+	   2 Input    4 Bit       Adders := 8     
++---XORs : 
+	                8 Bit    Wide XORs := 2     
+	                7 Bit    Wide XORs := 2     
+	                6 Bit    Wide XORs := 2     
+	                5 Bit    Wide XORs := 2     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                8 Bit    Registers := 40    
+	                6 Bit    Registers := 2     
+	                5 Bit    Registers := 3     
+	                4 Bit    Registers := 9     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 28    
++---Muxes : 
+	   2 Input   16 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 8     
+	   5 Input    8 Bit        Muxes := 3     
+	   2 Input    6 Bit        Muxes := 1     
+	   5 Input    6 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 4     
+	   5 Input    5 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 7     
+	   4 Input    4 Bit        Muxes := 3     
+	   5 Input    4 Bit        Muxes := 2     
+	   5 Input    3 Bit        Muxes := 2     
+	   2 Input    3 Bit        Muxes := 4     
+	   3 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 58    
+	   4 Input    1 Bit        Muxes := 4     
+	   5 Input    1 Bit        Muxes := 18    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 80 (col length:40)
+BRAMs: 120 (col length: RAMB18 40 RAMB36 20)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2303.543 ; gain = 687.539 ; free physical = 15809 ; free virtual = 29940
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2306.512 ; gain = 690.508 ; free physical = 15809 ; free virtual = 29940
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2306.512 ; gain = 690.508 ; free physical = 15817 ; free virtual = 29948
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2473.324 ; gain = 857.320 ; free physical = 15712 ; free virtual = 29818
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2473.324 ; gain = 857.320 ; free physical = 15712 ; free virtual = 29818
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2473.324 ; gain = 857.320 ; free physical = 15712 ; free virtual = 29818
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2473.324 ; gain = 857.320 ; free physical = 15712 ; free virtual = 29818
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2473.324 ; gain = 857.320 ; free physical = 15712 ; free virtual = 29818
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2473.324 ; gain = 857.320 ; free physical = 15712 ; free virtual = 29818
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    10|
+|3     |LUT1   |    17|
+|4     |LUT2   |    24|
+|5     |LUT3   |    50|
+|6     |LUT4   |    45|
+|7     |LUT5   |    61|
+|8     |LUT6   |   182|
+|9     |MUXF7  |    31|
+|10    |MUXF8  |     5|
+|11    |FDCE   |   162|
+|12    |FDPE   |    12|
+|13    |FDRE   |   256|
+|14    |IBUF   |    16|
+|15    |OBUF   |    10|
++------+-------+------+
+
+Report Instance Areas: 
++------+------------------+--------------+------+
+|      |Instance          |Module        |Cells |
++------+------------------+--------------+------+
+|1     |top               |              |   882|
+|2     |  u_rx_fifo       |fifo_8x16     |   237|
+|3     |  u_tx_fifo       |fifo_8x16_0   |   242|
+|4     |  u_uart_register |uart_register |   199|
+|5     |  u_uart_rx       |uart_rx       |    99|
+|6     |  u_uart_tx       |uart_tx       |    78|
++------+------------------+--------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2473.324 ; gain = 857.320 ; free physical = 15712 ; free virtual = 29818
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 1 critical warnings and 7 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2473.324 ; gain = 857.320 ; free physical = 15712 ; free virtual = 29818
+Synthesis Optimization Complete : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2473.332 ; gain = 857.320 ; free physical = 15712 ; free virtual = 29818
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2487.199 ; gain = 0.000 ; free physical = 15869 ; free virtual = 29974
+INFO: [Netlist 29-17] Analyzing 46 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2622.875 ; gain = 0.000 ; free physical = 15822 ; free virtual = 29928
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 3383b030
+INFO: [Common 17-83] Releasing license: Synthesis
+30 Infos, 7 Warnings, 1 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:09 . Memory (MB): peak = 2622.910 ; gain = 1006.906 ; free physical = 15821 ; free virtual = 29927
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1762.633; main = 1762.633; forked = 0.000
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 2622.879; main = 2622.879; forked = 0.000
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2646.887 ; gain = 0.000 ; free physical = 15821 ; free virtual = 29927
+INFO: [Common 17-1381] The checkpoint '/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.runs/synth_1/uart_16550_top.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file uart_16550_top_utilization_synth.rpt -pb uart_16550_top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Jun 25 13:20:03 2026...

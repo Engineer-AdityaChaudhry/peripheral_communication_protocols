@@ -1,81 +1,78 @@
 Time resolution is 1 ps
 
 ========== TEST 1: RESET ==========
-PASS [1] RX FIFO push is low after reset
-PASS [2] Parity error is low after reset
-PASS [3] Framing error is low after reset
-PASS [4] Break interrupt is low after reset
-PASS [5] Overrun is low after reset
+PASS [1] TX idles high after reset
+PASS [2] LSR reset value shows THRE and TEMT asserted
+PASS [3] IRQ is low after reset
 
-========== TEST 2: VALID 8N1 ==========
+========== TEST 2: UART CONFIGURATION ==========
+PASS [4] LCR is configured for 8N1
+
+========== TEST 3: 8N1 LOOPBACK ==========
 
 ========== TEST 1: RESET ==========
-PASS [1] RX FIFO push is low after reset
-PASS [2] Parity error is low after reset
-PASS [3] Framing error is low after reset
-PASS [4] Break interrupt is low after reset
-PASS [5] Overrun is low after reset
+PASS [1] TX idles high after reset
+PASS [2] LSR reset value shows THRE and TEMT asserted
+PASS [3] IRQ is low after reset
 
-========== TEST 2: VALID 8N1 ==========
-PASS [6] 8N1 pushes one received byte | expected delta=1, actual delta=1
-PASS [7] 8N1 received data equals 0xA5
-PASS [8] 8N1 has no parity error | expected delta=0, actual delta=0
-PASS [9] 8N1 has no framing error | expected delta=0, actual delta=0
-PASS [10] 8N1 has no break interrupt | expected delta=0, actual delta=0
-PASS [11] 8N1 has no overrun | expected delta=0, actual delta=0
+========== TEST 2: UART CONFIGURATION ==========
+PASS [4] LCR is configured for 8N1
 
-========== TEST 3: VALID 8E1 ==========
-PASS [12] 8E1 pushes one received byte | expected delta=1, actual delta=1
-PASS [13] 8E1 received data equals 0x13
-PASS [14] 8E1 parity is valid | expected delta=0, actual delta=0
-PASS [15] 8E1 has no framing error | expected delta=0, actual delta=0
+========== TEST 3: 8N1 LOOPBACK ==========
+PASS [5] 8N1 byte 0x55 generated an RX interrupt
+PASS [6] 8N1 byte 0x55 reports RX-data interrupt in IIR
+PASS [7] 8N1 byte 0x55 sets LSR Data Ready
+PASS [8] 8N1 byte 0x55 loopback received 0x55 correctly
+PASS [9] 8N1 byte 0x55 RX interrupt clears after RBR read
+PASS [10] 8N1 byte 0xA5 generated an RX interrupt
+PASS [11] 8N1 byte 0xA5 reports RX-data interrupt in IIR
+PASS [12] 8N1 byte 0xA5 sets LSR Data Ready
+PASS [13] 8N1 byte 0xA5 loopback received 0xa5 correctly
+PASS [14] 8N1 byte 0xA5 RX interrupt clears after RBR read
+PASS [15] 8N1 byte 0x00 generated an RX interrupt
+PASS [16] 8N1 byte 0x00 reports RX-data interrupt in IIR
+PASS [17] 8N1 byte 0x00 sets LSR Data Ready
+PASS [18] 8N1 byte 0x00 loopback received 0x00 correctly
+PASS [19] 8N1 byte 0x00 RX interrupt clears after RBR read
+PASS [20] 8N1 byte 0xFF generated an RX interrupt
+PASS [21] 8N1 byte 0xFF reports RX-data interrupt in IIR
+PASS [22] 8N1 byte 0xFF sets LSR Data Ready
+PASS [23] 8N1 byte 0xFF loopback received 0xff correctly
+PASS [24] 8N1 byte 0xFF RX interrupt clears after RBR read
 
-========== TEST 4: VALID 8O1 ==========
-PASS [16] 8O1 pushes one received byte | expected delta=1, actual delta=1
-PASS [17] 8O1 received data equals 0x13
-PASS [18] 8O1 parity is valid | expected delta=0, actual delta=0
+========== TEST 4: 8E1 LOOPBACK ==========
+PASS [25] 8E1 byte 0x13 generated an RX interrupt
+PASS [26] 8E1 byte 0x13 reports RX-data interrupt in IIR
+PASS [27] 8E1 byte 0x13 sets LSR Data Ready
+PASS [28] 8E1 byte 0x13 loopback received 0x13 correctly
+PASS [29] 8E1 byte 0x13 RX interrupt clears after RBR read
+PASS [30] 8E1 byte 0xA6 generated an RX interrupt
+PASS [31] 8E1 byte 0xA6 reports RX-data interrupt in IIR
+PASS [32] 8E1 byte 0xA6 sets LSR Data Ready
+PASS [33] 8E1 byte 0xA6 loopback received 0xa6 correctly
+PASS [34] 8E1 byte 0xA6 RX interrupt clears after RBR read
+PASS [35] 8E1 loopback completes without RX error flags
 
-========== TEST 5: VALID 5N1.5 ==========
-PASS [19] 5N1.5 pushes one received byte | expected delta=1, actual delta=1
-PASS [20] 5N1.5 received lower five bits correctly
-PASS [21] 5N1.5 has no framing error | expected delta=0, actual delta=0
+========== TEST 5: BACK-TO-BACK FIFO ==========
+PASS [36] Back-to-back first byte generated an RX interrupt
+PASS [37] First queued byte arrives first through loopback
+PASS [38] Back-to-back second byte generated an RX interrupt
+PASS [39] Second queued byte arrives second through loopback
 
-========== TEST 6: PARITY ERROR ==========
-PASS [22] Parity-error frame still pushes received byte | expected delta=1, actual delta=1
-PASS [23] Parity-error frame retains received data
-PASS [24] Invalid parity causes parity-error pulse | expected delta=1, actual delta=1
-PASS [25] Parity-error frame has valid stop bit | expected delta=0, actual delta=0
+========== TEST 6: FCR RX FIFO CLEAR ==========
+PASS [40] RX FIFO clear setup byte generated an RX interrupt
+PASS [41] RX FIFO contains data before FCR clear
+PASS [42] FCR RX clear removes pending received byte
+PASS [43] IRQ deasserts after RX FIFO clear
 
-========== TEST 7: FRAMING ERROR ==========
-PASS [26] Framing-error frame still pushes received byte | expected delta=1, actual delta=1
-PASS [27] Framing-error frame retains received data
-PASS [28] Framing-error frame has no parity error | expected delta=0, actual delta=0
-PASS [29] Low stop bit causes framing-error pulse | expected delta=1, actual delta=1
-PASS [30] Nonzero framing-error frame is not a break | expected delta=0, actual delta=0
-
-========== TEST 8: FALSE START GLITCH ==========
-PASS [31] Short low glitch does not push data | expected delta=0, actual delta=0
-PASS [32] Short low glitch has no parity error | expected delta=0, actual delta=0
-PASS [33] Short low glitch has no framing error | expected delta=0, actual delta=0
-
-========== TEST 9: RX FIFO OVERRUN ==========
-PASS [34] Full RX FIFO blocks push | expected delta=0, actual delta=0
-PASS [35] Full RX FIFO causes overrun pulse | expected delta=1, actual delta=1
-
-========== TEST 10: BREAK CONDITION ==========
-PASS [36] Break frame pushes received data | expected delta=1, actual delta=1
-PASS [37] Break frame received data is zero
-PASS [38] Break condition causes framing error | expected delta=1, actual delta=1
-PASS [39] Break condition causes break interrupt | expected delta=1, actual delta=1
-
-========== TEST 11: LCR LATCHING ==========
-PASS [40] Latched-LCR frame pushes one byte | expected delta=1, actual delta=1
-PASS [41] Latched-LCR frame keeps original 8-bit data
-PASS [42] Latched-LCR frame keeps original parity mode | expected delta=0, actual delta=0
-PASS [43] Latched-LCR frame keeps original stop format | expected delta=0, actual delta=0
+========== TEST 7: FINAL TX STATUS ==========
+PASS [44] TX FIFO and transmit shift register become empty
+PASS [45] LSR THRE is high when TX FIFO is empty
+PASS [46] LSR TEMT is high when TX FIFO and shift register are empty
 
 ========================================
-ALL UART RX TESTS PASSED. Checks: 43
+ALL UART TOP-LEVEL TESTS PASSED. Checks: 46
 ========================================
 
-$finish called at time : 38136 ns : File "/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sim_1/new/uart_rx_tb.sv" Line 593
+$finish called at time : 59250 ns : File "/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sim_1/new/uart_16550A_top_tb.sv" Line 447
+INFO: xsimkernel Simulation Memory Usage: 290728 KB (Peak: 338520 KB), Simulation CPU Usage: 650 ms
