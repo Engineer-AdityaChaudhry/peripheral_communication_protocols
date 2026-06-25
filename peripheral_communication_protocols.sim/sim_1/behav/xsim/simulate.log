@@ -1,78 +1,128 @@
 Time resolution is 1 ps
 
-========== TEST 1: RESET ==========
-PASS [1] TX idles high after reset
-PASS [2] LSR reset value shows THRE and TEMT asserted
-PASS [3] IRQ is low after reset
+========== TEST 1: RESET / IDLE ==========
+PASS [1] Master SCLK resets low
+PASS [2] Master CS_n resets high
+PASS [3] Master MOSI resets low
+PASS [4] Master busy resets low
+PASS [5] Master done resets low
+PASS [6] Slave MISO output-enable resets low
+PASS [7] Slave receive-valid resets low
+PASS [8] Shared MISO is high impedance while deselected
 
-========== TEST 2: UART CONFIGURATION ==========
-PASS [4] LCR is configured for 8N1
+========== TEST 2: FULL-DUPLEX A5 <-> BA ==========
+PASS [9] Transfer A5 <-> BA asserts master busy
+PASS [10] Transfer A5 <-> BA asserts CS_n low
+PASS [11] Transfer A5 <-> BA starts with SCLK low for Mode 0
+PASS [12] Transfer A5 <-> BA places MOSI MSB before first SCLK rising edge
+PASS [13] Transfer A5 <-> BA SCLK half-period matches divider
 
-========== TEST 3: 8N1 LOOPBACK ==========
+========== TEST 1: RESET / IDLE ==========
+PASS [1] Master SCLK resets low
+PASS [2] Master CS_n resets high
+PASS [3] Master MOSI resets low
+PASS [4] Master busy resets low
+PASS [5] Master done resets low
+PASS [6] Slave MISO output-enable resets low
+PASS [7] Slave receive-valid resets low
+PASS [8] Shared MISO is high impedance while deselected
 
-========== TEST 1: RESET ==========
-PASS [1] TX idles high after reset
-PASS [2] LSR reset value shows THRE and TEMT asserted
-PASS [3] IRQ is low after reset
+========== TEST 2: FULL-DUPLEX A5 <-> BA ==========
+PASS [9] Transfer A5 <-> BA asserts master busy
+PASS [10] Transfer A5 <-> BA asserts CS_n low
+PASS [11] Transfer A5 <-> BA starts with SCLK low for Mode 0
+PASS [12] Transfer A5 <-> BA places MOSI MSB before first SCLK rising edge
+PASS [13] Transfer A5 <-> BA SCLK half-period matches divider
+PASS [14] Transfer A5 <-> BA master completes and pulses done
+PASS [15] Transfer A5 <-> BA slave receives a complete frame
+PASS [16] Transfer A5 <-> BA master receives 0xba from slave
+PASS [17] Transfer A5 <-> BA slave receives 0xa5 from master
+PASS [18] Transfer A5 <-> BA generates exactly eight SCLK rising edges
+PASS [19] Transfer A5 <-> BA generates exactly eight SCLK falling edges
+PASS [20] Transfer A5 <-> BA performs one CS_n assertion
+PASS [21] Transfer A5 <-> BA releases CS_n after transfer
+PASS [22] Transfer A5 <-> BA returns SCLK low after transfer
+PASS [23] Transfer A5 <-> BA deasserts busy after transfer
+PASS [24] Transfer A5 <-> BA slave releases MISO after deselection
+PASS [25] Transfer A5 <-> BA done is one system-clock pulse
 
-========== TEST 2: UART CONFIGURATION ==========
-PASS [4] LCR is configured for 8N1
+========== TEST 3: FULL-DUPLEX 3C <-> C3 ==========
+PASS [26] Transfer 3C <-> C3 asserts master busy
+PASS [27] Transfer 3C <-> C3 asserts CS_n low
+PASS [28] Transfer 3C <-> C3 starts with SCLK low for Mode 0
+PASS [29] Transfer 3C <-> C3 places MOSI MSB before first SCLK rising edge
+PASS [30] Transfer 3C <-> C3 SCLK half-period matches divider
+PASS [31] Transfer 3C <-> C3 master completes and pulses done
+PASS [32] Transfer 3C <-> C3 slave receives a complete frame
+PASS [33] Transfer 3C <-> C3 master receives 0xc3 from slave
+PASS [34] Transfer 3C <-> C3 slave receives 0x3c from master
+PASS [35] Transfer 3C <-> C3 generates exactly eight SCLK rising edges
+PASS [36] Transfer 3C <-> C3 generates exactly eight SCLK falling edges
+PASS [37] Transfer 3C <-> C3 performs one CS_n assertion
+PASS [38] Transfer 3C <-> C3 releases CS_n after transfer
+PASS [39] Transfer 3C <-> C3 returns SCLK low after transfer
+PASS [40] Transfer 3C <-> C3 deasserts busy after transfer
+PASS [41] Transfer 3C <-> C3 slave releases MISO after deselection
+PASS [42] Transfer 3C <-> C3 done is one system-clock pulse
 
-========== TEST 3: 8N1 LOOPBACK ==========
-PASS [5] 8N1 byte 0x55 generated an RX interrupt
-PASS [6] 8N1 byte 0x55 reports RX-data interrupt in IIR
-PASS [7] 8N1 byte 0x55 sets LSR Data Ready
-PASS [8] 8N1 byte 0x55 loopback received 0x55 correctly
-PASS [9] 8N1 byte 0x55 RX interrupt clears after RBR read
-PASS [10] 8N1 byte 0xA5 generated an RX interrupt
-PASS [11] 8N1 byte 0xA5 reports RX-data interrupt in IIR
-PASS [12] 8N1 byte 0xA5 sets LSR Data Ready
-PASS [13] 8N1 byte 0xA5 loopback received 0xa5 correctly
-PASS [14] 8N1 byte 0xA5 RX interrupt clears after RBR read
-PASS [15] 8N1 byte 0x00 generated an RX interrupt
-PASS [16] 8N1 byte 0x00 reports RX-data interrupt in IIR
-PASS [17] 8N1 byte 0x00 sets LSR Data Ready
-PASS [18] 8N1 byte 0x00 loopback received 0x00 correctly
-PASS [19] 8N1 byte 0x00 RX interrupt clears after RBR read
-PASS [20] 8N1 byte 0xFF generated an RX interrupt
-PASS [21] 8N1 byte 0xFF reports RX-data interrupt in IIR
-PASS [22] 8N1 byte 0xFF sets LSR Data Ready
-PASS [23] 8N1 byte 0xFF loopback received 0xff correctly
-PASS [24] 8N1 byte 0xFF RX interrupt clears after RBR read
+========== TEST 4: START WHILE BUSY ==========
+PASS [43] Busy-protection transfer 96 <-> 69 asserts master busy
+PASS [44] Busy-protection transfer 96 <-> 69 asserts CS_n low
+PASS [45] Busy-protection transfer 96 <-> 69 starts with SCLK low for Mode 0
+PASS [46] Busy-protection transfer 96 <-> 69 places MOSI MSB before first SCLK rising edge
+PASS [47] Master remains busy during additional start request
+PASS [48] Busy-protection transfer 96 <-> 69 SCLK half-period matches divider
+PASS [49] Busy-protection transfer 96 <-> 69 master completes and pulses done
+PASS [50] Busy-protection transfer 96 <-> 69 slave receives a complete frame
+PASS [51] Busy-protection transfer 96 <-> 69 master receives 0x69 from slave
+PASS [52] Busy-protection transfer 96 <-> 69 slave receives 0x96 from master
+PASS [53] Busy-protection transfer 96 <-> 69 generates exactly eight SCLK rising edges
+PASS [54] Busy-protection transfer 96 <-> 69 generates exactly eight SCLK falling edges
+PASS [55] Busy-protection transfer 96 <-> 69 performs one CS_n assertion
+PASS [56] Busy-protection transfer 96 <-> 69 releases CS_n after transfer
+PASS [57] Busy-protection transfer 96 <-> 69 returns SCLK low after transfer
+PASS [58] Busy-protection transfer 96 <-> 69 deasserts busy after transfer
+PASS [59] Busy-protection transfer 96 <-> 69 slave releases MISO after deselection
+PASS [60] Busy-protection transfer 96 <-> 69 done is one system-clock pulse
 
-========== TEST 4: 8E1 LOOPBACK ==========
-PASS [25] 8E1 byte 0x13 generated an RX interrupt
-PASS [26] 8E1 byte 0x13 reports RX-data interrupt in IIR
-PASS [27] 8E1 byte 0x13 sets LSR Data Ready
-PASS [28] 8E1 byte 0x13 loopback received 0x13 correctly
-PASS [29] 8E1 byte 0x13 RX interrupt clears after RBR read
-PASS [30] 8E1 byte 0xA6 generated an RX interrupt
-PASS [31] 8E1 byte 0xA6 reports RX-data interrupt in IIR
-PASS [32] 8E1 byte 0xA6 sets LSR Data Ready
-PASS [33] 8E1 byte 0xA6 loopback received 0xa6 correctly
-PASS [34] 8E1 byte 0xA6 RX interrupt clears after RBR read
-PASS [35] 8E1 loopback completes without RX error flags
-
-========== TEST 5: BACK-TO-BACK FIFO ==========
-PASS [36] Back-to-back first byte generated an RX interrupt
-PASS [37] First queued byte arrives first through loopback
-PASS [38] Back-to-back second byte generated an RX interrupt
-PASS [39] Second queued byte arrives second through loopback
-
-========== TEST 6: FCR RX FIFO CLEAR ==========
-PASS [40] RX FIFO clear setup byte generated an RX interrupt
-PASS [41] RX FIFO contains data before FCR clear
-PASS [42] FCR RX clear removes pending received byte
-PASS [43] IRQ deasserts after RX FIFO clear
-
-========== TEST 7: FINAL TX STATUS ==========
-PASS [44] TX FIFO and transmit shift register become empty
-PASS [45] LSR THRE is high when TX FIFO is empty
-PASS [46] LSR TEMT is high when TX FIFO and shift register are empty
+========== TEST 5: EDGE DATA PATTERNS ==========
+PASS [61] Transfer 00 <-> FF asserts master busy
+PASS [62] Transfer 00 <-> FF asserts CS_n low
+PASS [63] Transfer 00 <-> FF starts with SCLK low for Mode 0
+PASS [64] Transfer 00 <-> FF places MOSI MSB before first SCLK rising edge
+PASS [65] Transfer 00 <-> FF SCLK half-period matches divider
+PASS [66] Transfer 00 <-> FF master completes and pulses done
+PASS [67] Transfer 00 <-> FF slave receives a complete frame
+PASS [68] Transfer 00 <-> FF master receives 0xff from slave
+PASS [69] Transfer 00 <-> FF slave receives 0x00 from master
+PASS [70] Transfer 00 <-> FF generates exactly eight SCLK rising edges
+PASS [71] Transfer 00 <-> FF generates exactly eight SCLK falling edges
+PASS [72] Transfer 00 <-> FF performs one CS_n assertion
+PASS [73] Transfer 00 <-> FF releases CS_n after transfer
+PASS [74] Transfer 00 <-> FF returns SCLK low after transfer
+PASS [75] Transfer 00 <-> FF deasserts busy after transfer
+PASS [76] Transfer 00 <-> FF slave releases MISO after deselection
+PASS [77] Transfer 00 <-> FF done is one system-clock pulse
+PASS [78] Transfer FF <-> 00 asserts master busy
+PASS [79] Transfer FF <-> 00 asserts CS_n low
+PASS [80] Transfer FF <-> 00 starts with SCLK low for Mode 0
+PASS [81] Transfer FF <-> 00 places MOSI MSB before first SCLK rising edge
+PASS [82] Transfer FF <-> 00 SCLK half-period matches divider
+PASS [83] Transfer FF <-> 00 master completes and pulses done
+PASS [84] Transfer FF <-> 00 slave receives a complete frame
+PASS [85] Transfer FF <-> 00 master receives 0x00 from slave
+PASS [86] Transfer FF <-> 00 slave receives 0xff from master
+PASS [87] Transfer FF <-> 00 generates exactly eight SCLK rising edges
+PASS [88] Transfer FF <-> 00 generates exactly eight SCLK falling edges
+PASS [89] Transfer FF <-> 00 performs one CS_n assertion
+PASS [90] Transfer FF <-> 00 releases CS_n after transfer
+PASS [91] Transfer FF <-> 00 returns SCLK low after transfer
+PASS [92] Transfer FF <-> 00 deasserts busy after transfer
+PASS [93] Transfer FF <-> 00 slave releases MISO after deselection
+PASS [94] Transfer FF <-> 00 done is one system-clock pulse
 
 ========================================
-ALL UART TOP-LEVEL TESTS PASSED. Checks: 46
+ALL SPI MASTER-SLAVE TESTS PASSED. Checks: 94
 ========================================
 
-$finish called at time : 59250 ns : File "/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sim_1/new/uart_16550A_top_tb.sv" Line 447
-INFO: xsimkernel Simulation Memory Usage: 290728 KB (Peak: 338520 KB), Simulation CPU Usage: 650 ms
+$finish called at time : 5916 ns : File "/home/polar_bear/Desktop/vlsi_portfolio/peripheral_communication_protocols/peripheral_communication_protocols.srcs/sim_1/new/spi_master_slave_tb.sv" Line 532
